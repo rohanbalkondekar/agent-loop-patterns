@@ -2,34 +2,26 @@
 
 This is the basic software-factory line: feed it a curated queue, make the worker agent land one bounded change, make the QA agent verify it, then move to the next item.
 
-This directory is a documentation-only pattern card. The runnable version of this pattern is `template/generic-codex-queue-loop/`. The files below are files you would create or copy into a target repository when instantiating this pattern.
-
 ```text
 queue item -> worker agent -> local commit -> QA agent -> checkpoint/rollback -> next item
 ```
 
-Use it when you want:
+## What Is In This Pattern
+
+```text
+loop/       copyable runnable skeleton built on the generic queue runner
+README.md   pattern explanation and usage notes
+```
+
+Use `loop/` when you want an actual starting point. It contains scripts plus `docs/agent-loops/*` files specialized for queue burn-down work.
+
+## Use It When You Want
 
 - one bounded task per loop
 - one local commit per accepted task
 - a separate validator pass
 - durable handoff notes between iterations
 - no automatic push
-
-## Files To Create In A Target Repo
-
-```text
-docs/agent-loops/
-├── example-action.md
-├── example-queue.md
-├── example-ledger.md
-├── example-validation.md
-└── prompts/
-    ├── fix-agent.md
-    └── validator-agent.md
-```
-
-Use the template when you want executable scripts; use this README when you only need to understand the pattern.
 
 ## Factory Example
 

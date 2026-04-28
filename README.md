@@ -25,7 +25,7 @@ Users can override those env vars, but the starter works without choosing a mode
 
 ### 1. Pick The Factory Line
 
-Start with the pattern cards. They are not runnable examples; they are blueprints for deciding what kind of factory you are building.
+Start with the pattern cards and their copyable `loop/` skeletons. The README in each pattern explains what kind of factory you are building; the `loop/` directory gives you a runnable starting point to adapt in a target repository.
 
 ```text
 patterns/queue-burndown-loop/          backlog -> worker -> QA -> next item
@@ -177,7 +177,7 @@ agent-loop-patterns/
 ├── GUIDE.md
 ├── SAFETY.md
 ├── LICENSE
-├── patterns/                              # documentation-only pattern cards
+├── patterns/                              # pattern cards + copyable loop skeletons
 │   ├── queue-burndown-loop/               # queue -> fixer -> validator -> next item
 │   ├── modernization-campaign-loop/       # milestone -> slice -> gates -> handoff
 │   ├── metric-optimization-loop/          # idea -> metric -> keep/revert -> next idea
@@ -186,7 +186,7 @@ agent-loop-patterns/
     └── generic-codex-queue-loop/          # reusable runnable starter template
 ```
 
-The `patterns/` directories are not runnable harnesses and do not contain every file named in their READMEs. They are concise pattern cards: each one explains what that factory line is for, what files you would create in a target repository, and what a healthy pass looks like. The runnable starter is `template/generic-codex-queue-loop/`.
+Each `patterns/*/` directory contains a README plus a `loop/` skeleton. The README explains the factory line. The `loop/` directory is a copyable starting point built on the same tested runner as `template/generic-codex-queue-loop/`, with action/queue/ledger/validation files specialized for that pattern.
 
 ## Standard Shape
 

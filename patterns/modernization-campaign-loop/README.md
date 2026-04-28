@@ -2,11 +2,18 @@
 
 Use this when the work is bigger than one issue but still needs to move in controlled slices: migrations, framework upgrades, runtime hardening, API boundary rewrites, and large refactors.
 
-This directory is a documentation-only pattern card, not a runnable campaign. It demonstrates how to turn a broad migration into one-slice passes with proof, gates, and handoff notes. The files below are files you would create in a target repository when instantiating this pattern.
-
 ```text
 milestone -> prove a live slice still exists -> implement one slice -> run gates -> update ledger -> next slice
 ```
+
+## What Is In This Pattern
+
+```text
+loop/       copyable runnable skeleton built on the generic queue runner
+README.md   pattern explanation and usage notes
+```
+
+The `loop/` directory contains action, queue, ledger, validation, prompts, and runner scripts specialized for campaign work.
 
 ## What It Controls
 
@@ -14,18 +21,6 @@ milestone -> prove a live slice still exists -> implement one slice -> run gates
 - Forces each pass to reduce a real ownership, runtime, migration, or architecture problem.
 - Keeps the next handoff honest when the code has moved since the last run.
 - Rejects docs-only progress when the campaign goal is runtime or architectural change.
-
-## Files To Create In A Target Repo
-
-```text
-docs/agent-loops/campaign-action.md
-docs/agent-loops/campaign-queue.md
-docs/agent-loops/campaign-ledger.md
-docs/agent-loops/campaign-validation.md
-docs/agent-loops/prompts/fix-agent.md
-docs/agent-loops/prompts/validator-agent.md
-scripts/run-campaign-loop.sh
-```
 
 ## Good Queue Items
 

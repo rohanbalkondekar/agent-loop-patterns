@@ -2,11 +2,18 @@
 
 Use this when implementation should not be trusted until a second agent has attacked it. This is the QA station for the factory.
 
-This directory is a documentation-only pattern card, not a runnable review harness. It demonstrates how to separate builder and reviewer roles, turn findings into bounded fixes, and require final validation. The files below are files you would create in a target repository when instantiating this pattern.
-
 ```text
 implementation -> independent review -> findings -> fixes -> final validation
 ```
+
+## What Is In This Pattern
+
+```text
+loop/       copyable runnable skeleton built on the generic queue runner
+README.md   pattern explanation and usage notes
+```
+
+The `loop/` directory contains action, queue, ledger, validation, prompts, and runner scripts specialized for implementation-plus-review work.
 
 ## What It Controls
 
@@ -14,24 +21,15 @@ implementation -> independent review -> findings -> fixes -> final validation
 - Catches missing tests, weak validation, broad scope, and maintainability problems.
 - Turns review findings into another bounded implementation pass instead of a long comment thread.
 
-## Files To Create In A Target Repo
-
-```text
-review-action.md
-review-prompt.md
-fix-findings-prompt.md
-reviews/
-```
-
 ## Loop Contract
 
-1. Implementation agent completes a bounded change.
-2. Review agent inspects the diff and recent commits.
-3. Review agent returns findings ordered by severity.
-4. Implementation agent fixes accepted findings.
+1. Worker agent completes a bounded change.
+2. QA agent inspects the diff and recent commit.
+3. QA agent returns findings ordered by severity.
+4. Worker fixes accepted findings or records non-blocking follow-up.
 5. Final validation proves the fix and records what remains.
 
-The review agent should be independent, read-first, and willing to fail the work.
+The QA agent should be independent, read-first, and willing to fail the work.
 
 ## Factory Example
 
