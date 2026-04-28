@@ -1,0 +1,5 @@
+_loop-runs/
+.DS_Store
+*.log
+*.local.md
+*.tmp
