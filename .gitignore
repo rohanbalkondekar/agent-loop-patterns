@@ -3,3 +3,9 @@ _loop-runs/
 *.log
 *.local.md
 *.tmp
+
+# Local presentation / workshop prep artifacts.
+# Keep these out of the public repo: they may contain local paths,
+# meeting notes, generated transcripts, speaker notes, or internal context.
+deck/
+video-transcript/

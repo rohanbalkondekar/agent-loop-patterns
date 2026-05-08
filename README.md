@@ -21,6 +21,28 @@ CODEX_REASONING_EFFORT=xhigh
 
 Users can override those env vars, but the starter works without choosing a model first.
 
+## Office-Hours Field Guide
+
+This repo is the public-safe version of a short talk on agent harnesses and Ralph loops.
+
+The core argument is simple:
+
+```text
+small harness + explicit tools + durable context + boring loop + hard validation = useful agents
+```
+
+The main takeaways:
+
+1. **The harness matters more than the chat box.** A coding agent becomes useful when you define the tools it can call, the context it should load, the permissions it has, the checks it must run, and the memory it must update.
+2. **Dumb loops beat clever orchestration.** Start with one sequential loop before building multi-agent coordination. Most teams are bottlenecked by specification, review, and release gates, not by the number of agents running in parallel.
+3. **The queue is the multiplier.** Repeating one prompt can catch missed work, but the real value comes from a queue of small, ordered, verifiable tasks.
+4. **Feedback is the product.** Tests, benchmarks, screenshots, static checks, reviewers, and validators are how the loop learns whether it did useful work. Self-reported success is not enough.
+5. **Validation should be independent.** The worker is biased toward believing it is done. A fresh validator, ideally read-only, should inspect the actual diff and rerun the checks.
+6. **Safety means reversible progress.** Let agents prepare changes, drafts, and local commits. Do not let them push, publish, send messages, close projects, or touch production systems without a human gate.
+7. **Memory belongs in files, not chat.** A ledger and current handoff make the next pass concrete and prevent the agent from rediscovering the same state every run.
+
+Use this repository when you want to turn those ideas into runnable local machinery.
+
 ## Quick Start
 
 ### 1. Pick The Factory Line
